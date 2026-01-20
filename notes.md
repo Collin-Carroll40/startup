@@ -8,11 +8,56 @@
 - [Canvas](https://byu.instructure.com)
 - [MDN](https://developer.mozilla.org)
 
-## AWS
+**AWS Startup Server Setup**
+EC2 Instance Setup
 
-My IP address is: 54.81.96.130
-Launching my AMI I initially put it on a private subnet. Even though it had a public IP address and the security group was right, I wasn't able to connect to it.
+Region: Selected US East (N. Virginia) us-east-1 (Required for class AMI).
 
+AMI: Used the specific class image: ami-094c4a0be0b642a24 (Web Programming 260 Server v8).
+
+Instance Type: t3.micro (Free tier eligible).
+
+Key Pair: Created startup-key.pem and stored it locally (permissions set to 400).
+
+Firewall (Security Group): Configured to allow SSH (22), HTTP (80), and HTTPS (443) from anywhere.
+
+Networking (Elastic IP)
+
+Allocated a permanent Elastic IP address (100.51.137.17) to prevent IP changes on reboot.
+
+Associated the Elastic IP with the running EC2 instance.
+
+Domain Registration (Route 53)
+
+Registered domain: collincarroll-startup.click.
+
+(Note: required upgrading AWS account to paid plan to bypass student restrictions).
+
+Verified email address to prevent domain suspension.
+
+DNS Configuration
+
+Created two A Records in Route 53 pointing to the Elastic IP (100.51.137.17):
+
+Root (@): collincarroll-startup.click
+
+Wildcard (*): *.collincarroll-startup.click (covers simon. and startup. subdomains).
+
+Server Configuration (Caddy & HTTPS)
+
+SSH Access: Connected to server via terminal: ssh -i startup-key.pem ubuntu@100.51.137.17
+
+Caddyfile: Edited /etc/caddy/Caddyfile to remove the default :80 block and add HTTPS support for three routes:
+
+Root (/usr/share/caddy for static files)
+
+startup. subdomain (Reverse proxy to port 4000)
+
+simon. subdomain (Reverse proxy to port 3000)
+
+Restart: Applied changes with sudo service caddy restart.
+
+Result: Verified site loads with a secure connection (HTTPS/Lock icon).
 ## Caddy
 
 No problems worked just like it said in the [instruction](https://github.com/webprogramming260/.github/blob/main/profile/webServers/https/https.md).
