@@ -8,7 +8,7 @@
 - [Canvas](https://byu.instructure.com)
 - [MDN](https://developer.mozilla.org)
 
-**AWS Startup Server Setup**
+## AWS Startup Server Setup
 EC2 Instance Setup
 
 Region: Selected US East (N. Virginia) us-east-1 (Required for class AMI).
