@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pipeline Pro - Import</title>
+    <title>Pipeline Pro - My Cadence</title>
 </head>
 <body>
     <header>
@@ -27,25 +27,22 @@
 
             <td valign="top">
                 <main>
-                    <h2>Import Leads</h2>
+                    <h2>My Outreach Cadence</h2>
+                    <p>Build your automated follow-up sequence here.</p>
+                    
                     <section>
-                        <h3>Past Imports</h3>
-                        <ul>
-                            <li>Jan_Batch.csv (Success)</li>
-                            <li>Dec_Batch.xlsx (Failed)</li>
-                        </ul>
+                        <h3>Step 1: Initial Contact</h3>
+                        <label>Send Email:</label>
+                        <textarea placeholder="Hi [Name], I noticed you need help with..."></textarea>
                     </section>
-
+                    
                     <section>
-                        <h3>Upload New File</h3>
-                        <div style="border: 2px dashed gray; padding: 50px; text-align: center;">
-                            <p>Drag & Drop files here</p>
-                            <p>or</p>
-                            <input type="file" id="fileUpload" accept=".csv, .xlsx" />
-                        </div>
-                        <p><small>Accepted formats: CSV, XLSX</small></p>
-                        <button>Upload</button>
+                        <h3>Step 2: Follow Up (3 Days Later)</h3>
+                        <label>Send SMS:</label>
+                        <input type="text" placeholder="Just checking in..." />
                     </section>
+                    
+                    <button>Save Cadence</button>
                 </main>
             </td>
         </tr>
