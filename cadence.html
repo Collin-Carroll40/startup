@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="main.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pipeline Pro - My Cadence</title>
@@ -11,45 +12,43 @@
         <div>User: Collin (Admin)</div>
     </header>
 
-    <table width="100%" border="1">
-        <tr>
-            <td width="20%" valign="top">
-                <nav>
-                    <ul>
-                        <li><a href="dashboard.html">Team Dashboard</a></li>
-                        <li><a href="leads.html">Available Leads</a></li>
-                        <li><a href="import.html">Import Leads</a></li>
-                        <li><a href="cadence.html">My Cadence</a></li>
-                        <li><a href="index.html">Logout</a></li>
-                    </ul>
-                </nav>
-            </td>
+    <div class="main-container">
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Team Dashboard</a></li>
+                <li><a href="leads.html">Available Leads</a></li>
+                <li><a href="import.html">Import Leads</a></li>
+                <li><a href="cadence.html">My Cadence</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </nav>
 
-            <td valign="top">
-                <main>
-                    <h2>My Outreach Cadence</h2>
-                    <p>Build your automated follow-up sequence here.</p>
-                    
-                    <section>
-                        <h3>Step 1: Initial Contact</h3>
-                        <label>Send Email:</label>
-                        <textarea placeholder="Hi [Name], I noticed you need help with..."></textarea>
-                    </section>
-                    
-                    <section>
-                        <h3>Step 2: Follow Up (3 Days Later)</h3>
-                        <label>Send SMS:</label>
-                        <input type="text" placeholder="Just checking in..." />
-                    </section>
-                    
-                    <button>Save Cadence</button>
-                </main>
-            </td>
-        </tr>
-    </table>
+        <main>
+            <h2>My Outreach Cadence</h2>
+            <p>Build your automated follow-up sequence here.</p>
+            
+            <section>
+                <h3>Step 1: Initial Contact</h3>
+                <label>Send Email:</label>
+                <br>
+                <textarea placeholder="Hi [Name], I noticed you need help with..."></textarea>
+            </section>
+            
+            <section>
+                <h3>Step 2: Follow Up (3 Days Later)</h3>
+                <label>Send SMS:</label>
+                <br>
+                <input type="text" placeholder="Just checking in..." />
+            </section>
+            
+            <br>
+            <button>Save Cadence</button>
+        </main>
+    </div>
 
     <footer>
         <p>Pipeline Pro &copy; 2026</p>
+        <p>Created by Collin Carroll</p>
     </footer>
 </body>
 </html>

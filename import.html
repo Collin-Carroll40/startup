@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="main.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pipeline Pro - Import</title>
@@ -11,48 +12,40 @@
         <div>User: Collin (Admin)</div>
     </header>
 
-    <table width="100%" border="1">
-        <tr>
-            <td width="20%" valign="top">
-                <nav>
-                    <ul>
-                        <li><a href="dashboard.html">Team Dashboard</a></li>
-                        <li><a href="leads.html">Available Leads</a></li>
-                        <li><a href="import.html">Import Leads</a></li>
-                        <li><a href="cadence.html">My Cadence</a></li>
-                        <li><a href="index.html">Logout</a></li>
-                    </ul>
-                </nav>
-            </td>
+    <div class="main-container">
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Team Dashboard</a></li>
+                <li><a href="leads.html">Available Leads</a></li>
+                <li><a href="import.html">Import Leads</a></li>
+                <li><a href="cadence.html">My Cadence</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </nav>
 
-            <td valign="top">
-                <main>
-                    <h2>Import Leads</h2>
-                    <section>
-                        <h3>Past Imports</h3>
-                        <ul>
-                            <li>Jan_Batch.csv (Success)</li>
-                            <li>Dec_Batch.xlsx (Failed)</li>
-                        </ul>
-                    </section>
+        <main>
+            <h2>Import Leads</h2>
+            <section>
+                <h3>Past Imports</h3>
+                <ul>
+                    <li>Jan_Batch.csv (Success)</li>
+                    <li>Dec_Batch.xlsx (Failed)</li>
+                </ul>
+            </section>
 
-                    <section>
-                        <h3>Upload New File</h3>
-                        <div style="border: 2px dashed gray; padding: 50px; text-align: center;">
-                            <p>Drag & Drop files here</p>
-                            <p>or</p>
-                            <input type="file" id="fileUpload" accept=".csv, .xlsx" />
-                        </div>
-                        <p><small>Accepted formats: CSV, XLSX</small></p>
-                        <button>Upload</button>
-                    </section>
-                </main>
-            </td>
-        </tr>
-    </table>
-
-    <footer>
+            <section>
+                <h3>Upload New File</h3>
+                <div style="border: 2px dashed gray; padding: 50px; text-align: center;">
+                    <p>Drag & Drop files here</p>
+                    <p>or</p>
+                    <input type="file" id="fileUpload" accept=".csv, .xlsx" />
+                </div>
+                <p><small>Accepted formats: CSV, XLSX</small></p>
+                <button>Upload</button>
+            </section>
+        </main>
+    </div> <footer>
         <p>Pipeline Pro &copy; 2026</p>
-    </footer>
+        <p>Created by Collin Carroll</p> </footer>
 </body>
 </html>

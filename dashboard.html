@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="main.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pipeline Pro - Team Dashboard</title>
@@ -11,58 +12,50 @@
         <div>User: Collin (Admin)</div>
     </header>
 
-    <table width="100%" border="1">
-        <tr>
-            <td width="20%" valign="top">
-                <nav>
-                    <ul>
-                        <li><a href="dashboard.html">Team Dashboard</a></li>
-                        <li><a href="leads.html">Available Leads</a></li>
-                        <li><a href="import.html">Import Leads</a></li>
-                        <li><a href="cadence.html">My Cadence</a></li>
-                        <li><a href="index.html">Logout</a></li>
-                    </ul>
-                </nav>
-            </td>
+<div class="main-container">
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Team Dashboard</a></li>
+                <li><a href="leads.html">Available Leads</a></li>
+                <li><a href="import.html">Import Leads</a></li>
+                <li><a href="cadence.html">My Cadence</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </nav>
 
-            <td valign="top">
-                <main>
-                    <h2>Team Dashboard</h2>
-                    
-                    <section>
-                        <h3>Sales Metrics</h3>
-                        <p>[Pie Chart Placeholder]</p>
-                        <img src="https://placehold.co/200x200?text=Pie+Chart" alt="Sales Pie Chart">
-                        
-                        <p>[Bar Graph Placeholder]</p>
-                        <div style="background:blue; width:100px; height:20px;"></div><br>
-                        <div style="background:blue; width:150px; height:20px;"></div><br>
-                        <div style="background:blue; width:80px; height:20px;"></div>
-                    </section>
+        <main> <h2>Team Dashboard</h2>
+            
+            <section>
+                <h3>Sales Metrics</h3>
+                <p>[Pie Chart Placeholder]</p>
+                <img src="https://placehold.co/200x200?text=Pie+Chart" alt="Sales Pie Chart">
+                
+                <p>[Bar Graph Placeholder]</p>
+                <div style="background:blue; width:100px; height:20px;"></div><br>
+                <div style="background:blue; width:150px; height:20px;"></div><br>
+                <div style="background:blue; width:80px; height:20px;"></div>
+            </section>
 
-                    <hr />
+            <hr />
 
-                    <section>
-                        <h3>Sales Leaders (Live Feed)</h3>
-                        <ul>
-                            <li>User A closed "Smith Co" ($5k)</li>
-                            <li>User B closed "Jones Inc" ($3k)</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h3>Industry News Ticker (API)</h3>
-                        <div style="background: #f0f0f0; padding: 10px; border: 1px solid #ccc;">
-                            <p><i>Fetching live construction news...</i></p>
-                            <p>(This data will come from the NewsAPI.org service)</p>
-                        </div>
-                    </section>
-                </main>
-            </td>
-        </tr>
-    </table>
+            <section>
+                <h3>Sales Leaders (Live Feed)</h3>
+                <ul>
+                    <li>User A closed "Smith Co" ($5k)</li>
+                    <li>User B closed "Jones Inc" ($3k)</li>
+                </ul>
+            </section>
 
-    <footer>
+            <section>
+                <h3>Industry News Ticker (API)</h3>
+                <div style="background: #f0f0f0; padding: 10px; border: 1px solid #ccc;">
+                    <p><i>Fetching live construction news...</i></p>
+                    <p>(This data will come from the NewsAPI.org service)</p>
+                </div>
+            </section>
+        </main>
+    </div> <footer>
         <p>Pipeline Pro &copy; 2026</p>
-    </footer>
+        <p>Created by Collin Carroll</p> </footer>
 </body>
 </html>

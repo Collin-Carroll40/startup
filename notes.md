@@ -96,6 +96,26 @@ I implemented a consistent sidebar navigation structure using HTML tables (to be
 ```
 
 
+
+## CSS
+
+Flexbox Layout: Used a column layout on the body to pin the header and footer while the main content fills the viewport.
+
+Main Container: Replaced old HTML tables with a .main-container using display: flex to align the sidebar and content side-by-side.
+
+Responsive Design: Implemented media queries to switch to flex-direction: column on screens smaller than 700px for mobile compatibility.
+
+CSS Animations: Added @keyframes with a fadeIn effect on the <main> element to improve UI transitions.
+
+Application Styling: added keyframes with a fadein on the main
+
+Tables: Styled lead lists with zebra-striping and padding for better scannability.
+
+Interactive Elements: Customized buttons and inputs with BYU-themed colors and hover transitions.
+
+Placeholders: Styled metrics and live feeds to represent future WebSocket/API data integration.
+
+
 ## React Part 1: Routing
 
 Setting up Vite and React was pretty simple. I had a bit of trouble because of conflicting CSS. This isn't as straight forward as you would find with Svelte or Vue, but I made it work in the end. If there was a ton of CSS it would be a real problem. It sure was nice to have the code structured in a more usable way.
