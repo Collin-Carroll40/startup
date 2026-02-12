@@ -14,27 +14,27 @@ export default function App() {
   return (
     <BrowserRouter>
       <div className='body'>
-        <header>
-          <h1>Pipeline Pro 🏗️</h1>
-          <nav>
-            <menu className='navbar-nav'>
-              <li className='nav-item'>
-                <NavLink className='nav-link' to=''>Login</NavLink>
-              </li>
-              <li className='nav-item'>
-                <NavLink className='nav-link' to='dashboard'>Dashboard</NavLink>
-              </li>
-              <li className='nav-item'>
-                <NavLink className='nav-link' to='leads'>Leads</NavLink>
-              </li>
-              <li className='nav-item'>
-                <NavLink className='nav-link' to='import'>Import</NavLink>
-              </li>
-              <li className='nav-item'>
-                <NavLink className='nav-link' to='cadence'>Cadence</NavLink>
-              </li>
+        <header className="container-fluid">
+        <div className="navbar-brand">Pipeline Pro 🏗️</div>
+        <nav className="navbar navbar-dark">
+            <menu className="navbar-nav">
+            <li className="nav-item">
+                <NavLink className="nav-link" to="">Login</NavLink>
+            </li>
+            <li className="nav-item">
+                <NavLink className="nav-link" to="dashboard">Dashboard</NavLink>
+            </li>
+            <li className="nav-item">
+                <NavLink className="nav-link" to="leads">Leads</NavLink>
+            </li>
+            <li className="nav-item">
+                <NavLink className="nav-link" to="import">Import</NavLink>
+            </li>
+            <li className="nav-item">
+                <NavLink className="nav-link" to="cadence">Cadence</NavLink>
+            </li>
             </menu>
-          </nav>
+        </nav>
         </header>
 
         <Routes>
