@@ -24,6 +24,7 @@ header {
   align-items: center;
 }
 
+/* This container holds the Nav on left */
 .main-container {
   display: flex;
   flex: 1;
@@ -33,33 +34,37 @@ nav {
   flex: 0 0 200px;
   background-color: #f4f4f4;
   padding: 20px;
+  border-right: 1px solid #ddd;
 }
 
-nav ul {
+.navbar-nav {
   list-style: none;
   padding: 0;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin: 0;
 }
 
-nav a {
-  color: #002e5d;
+/* Style the React NavLinks */
+.nav-link {
+  color: #002e5d !important; /* Force navy blue */
   text-decoration: none;
   font-weight: bold;
+  padding: 5px 0;
+}
+
+/* Highlights which page on */
+.nav-link.active {
+  color: #d1a110 !important; 
+  border-left: 4px solid #d1a110;
+  padding-left: 10px;
 }
 
 main {
   flex: 1;
   padding: 20px;
   animation: fadeIn 0.6s ease-out;
-}
-
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
 }
 
 table {
@@ -75,10 +80,9 @@ th, td {
 }
 
 th { background-color: #f8f9fa; }
-
 tbody tr:nth-child(even) { background-color: #f2f2f2; }
 
-button {
+button, .btn-primary {
   background-color: #002e5d;
   color: white;
   border: none;
@@ -92,6 +96,7 @@ button {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* media size */
 @media (max-width: 700px) {
   .main-container {
     flex-direction: column;
@@ -100,5 +105,10 @@ button {
     flex: none;
     width: 100%;
     border-bottom: 1px solid #ddd;
+    border-right: none;
+  }
+  .navbar-nav {
+    flex-direction: row;
+    justify-content: space-around;
   }
 }
