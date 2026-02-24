@@ -115,8 +115,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
-- [ ] **Hooks** - I did not complete this part of the deliverable.
+- [x] **All functionality implemented or mocked out** - Mocked user database with `localStorage`, mocked WebSocket live feed with `setInterval` on the Dashboard, and simulated an API delay with `setTimeout`.
+- [x] **Hooks** - Used `useState` for form inputs, array manipulation, and conditional rendering across 5 components. Used `useEffect` for the Dashboard live feed and news ticker.
 
 ## 🚀 Service deliverable
 
