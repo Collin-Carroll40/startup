@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 
-// We will create these components in the next step
 import { Login } from './login/login';
 import { Dashboard } from './dashboard/dashboard';
 import { Leads } from './leads/leads';
@@ -11,7 +10,13 @@ import { Import } from './import/import';
 import { Cadence } from './cadence/cadence';
 
 export default function App() {
-return (
+  // Check storage
+  const [userName, setUserName] = useState(localStorage.getItem('userName') || '');
+  
+  // Set auth state
+  const [authState, setAuthState] = useState(userName ? 'Authenticated' : 'Unauthenticated');
+
+  return (
     <BrowserRouter>
       <div className='body'>
         
@@ -21,30 +26,51 @@ return (
 
         <div className="main-container">
           
-          {/* This is Left Sidebar */}
+          {/* Sidebar */}
           <nav>
             <menu className='navbar-nav'>
-              <li className='nav-item'><NavLink className='nav-link' to=''>Login</NavLink></li>
-              <li className='nav-item'><NavLink className='nav-link' to='dashboard'>Dashboard</NavLink></li>
-              <li className='nav-item'><NavLink className='nav-link' to='leads'>Leads</NavLink></li>
-              <li className='nav-item'><NavLink className='nav-link' to='import'>Import</NavLink></li>
-              <li className='nav-item'><NavLink className='nav-link' to='cadence'>Cadence</NavLink></li>
+              {/* Unauthenticated view */}
+              {authState === 'Unauthenticated' && (
+                <li className='nav-item'><NavLink className='nav-link' to=''>Login</NavLink></li>
+              )}
+              
+              {/* Authenticated view */}
+              {authState === 'Authenticated' && (
+                <>
+                  <li className='nav-item'><NavLink className='nav-link' to='dashboard'>Dashboard</NavLink></li>
+                  <li className='nav-item'><NavLink className='nav-link' to='leads'>Leads</NavLink></li>
+                  <li className='nav-item'><NavLink className='nav-link' to='import'>Import</NavLink></li>
+                  <li className='nav-item'><NavLink className='nav-link' to='cadence'>Cadence</NavLink></li>
+                  <li className='nav-item'>
+                    {/* Logout button */}
+                    <a className='nav-link' href='/' onClick={(e) => {
+                      e.preventDefault();
+                      localStorage.removeItem('userName'); // Clear storage
+                      setAuthState('Unauthenticated');
+                      setUserName('');
+                    }}>Logout</a>
+                  </li>
+                </>
+              )}
             </menu>
           </nav>
 
-
           <Routes>
-            <Route path='/' element={<Login />} exact />
-            <Route path='/dashboard' element={<Dashboard />} />
+            {/* Pass state to login */}
+            <Route path='/' element={<Login setUserName={setUserName} setAuthState={setAuthState} />} exact />
+            
+            {/* Pass username to dashboard */}
+            <Route path='/dashboard' element={<Dashboard userName={userName} />} />
+            
             <Route path='/leads' element={<Leads />} />
             <Route path='/import' element={<Import />} />
             <Route path='/cadence' element={<Cadence />} />
-            <Route path='*' element={<main>404: Return to sender. Address unknown.</main>} />
+            <Route path='*' element={<NotFound />} />
           </Routes>
           
         </div>
 
-        {/* 3. Footer stays at the bottom */}
+        {/* Footer */}
         <footer>
           <p>Created by Collin Carroll</p>
           <a href="https://github.com/Collin-Carroll40/startup">GitHub</a>
