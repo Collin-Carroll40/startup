@@ -7,7 +7,7 @@ export function Dashboard({ userName }) {
     'User B closed "Jones Inc" ($3k)'
   ]);
 
-  // News state
+  // News state actuallty done
   const [news, setNews] = useState('Fetching live construction news...');
 
   //websocket feed
