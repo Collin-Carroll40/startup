@@ -1,9 +1,27 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-export function Login() {
+export function Login({ setUserName, setAuthState }) {
   // Track input
-  const [userName, setUserNameInput] = useState('');
+  const [userNameInput, setUserNameInput] = useState('');
+  
+  // Setup nav
+  const navigate = useNavigate();
+
+  // Handle form submit
+  const loginUser = (e) => {
+    e.preventDefault();
+    
+    // Mock database
+    localStorage.setItem('userName', userNameInput);
+    
+    // Update app state
+    setUserName(userNameInput);
+    setAuthState('Authenticated');
+    
+    // Go dashboard
+    navigate('/dashboard');
+  };
 
   return (
     <main className='container-fluid bg-secondary text-center text-white p-5'>
@@ -17,7 +35,8 @@ export function Login() {
           </a>
         </div>
         
-        <form onSubmit={(e) => e.preventDefault()}>
+        {/* Trigger submit */}
+        <form onSubmit={loginUser}>
           <div className='mb-3'>
             <label className='form-label' htmlFor='username'>User:</label>
             {/* Bind state */}
@@ -26,7 +45,7 @@ export function Login() {
               type='text' 
               id='username' 
               placeholder='your@email.com'
-              value={userName}
+              value={userNameInput}
               onChange={(e) => setUserNameInput(e.target.value)}
               required 
             />
@@ -36,8 +55,8 @@ export function Login() {
             <input className='form-control w-50 mx-auto' type='password' id='password' placeholder='Password' required />
           </div>
           
-          {/* still working here */}
-          <Link to='/dashboard' className='btn btn-primary'>Login</Link>
+          {/* finished submit button */}
+          <button type='submit' className='btn btn-primary'>Login</button>
         </form>
       </section>
     </main>
