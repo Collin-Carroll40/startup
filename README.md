@@ -8,16 +8,11 @@ PipelinePro is a collaborative, real-time CRM that combines lead tracking with i
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [x] Proper use of Markdown - I used headings, lists, bold text, and code blocks to format this README file.
-
-- [x] A concise and compelling elevator pitch - I wrote a pitch for PipelinePro focusing on the CRM aspects and why CRM's need to do more.
-
-- [x] Description of key features - I listed features like the live claim board, email integration, and team sync.
-
-- [x] Description of how you will use each technology - I explained how React, WebSockets, and the Mailgun API will be implemented.
-
-- [x] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references. - I drew the Login and Dashboard views and embedded the images below.
-
+- [x] **Proper use of Markdown** - I used headings, lists, bold text, and code blocks to format this README file.
+- [x] **A concise and compelling elevator pitch** - I wrote a pitch for PipelinePro focusing on the CRM aspects and why CRM's need to do more.
+- [x] **Description of key features** - I listed features like the live claim board, email integration, and team sync.
+- [x] **Description of how you will use each technology** - I explained how React, WebSockets, and the Mailgun API will be implemented.
+- [x] **One or more rough sketches of your application** - I drew the Login and Dashboard views and embedded the images below.
 
 ### Elevator pitch
 
@@ -82,21 +77,21 @@ I am going to use the required technologies in the following ways.
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Server deployed and accessible with custom domain name** - [My server link](https://yourdomainnamehere.click).
+- [x] **Server deployed and accessible with custom domain name** - [My server link](https://startup.collincarroll-startup.click).
 
 ## 🚀 HTML deliverable
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **HTML pages** - I did not complete this part of the deliverable.
-- [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
-- [ ] **Links** - I did not complete this part of the deliverable.
-- [ ] **Text** - I did not complete this part of the deliverable.
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
-- [ ] **Images** - I did not complete this part of the deliverable.
-- [ ] **Login placeholder** - I did not complete this part of the deliverable.
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [x] **HTML pages** - Created structure for login, dashboard, leads, import, and cadence pages.
+- [x] **Proper HTML element usage** - Utilized semantic tags like `<header>`, `<main>`, `<nav>`, and `<section>`.
+- [x] **Links** - Created navigation links between all application pages in the sidebar.
+- [x] **Text** - Added textual descriptions of features, metrics placeholders, and lead data.
+- [x] **3rd party API placeholder** - Added a news ticker placeholder that will pull from a construction news API.
+- [x] **Images** - Embedded charts and dashboard placeholder images.
+- [x] **Login placeholder** - Created a functional login form with username and password fields.
+- [x] **DB data placeholder** - Displayed a table of leads representing data that will be pulled from a database.
+- [x] **WebSocket placeholder** - Added a 'Sales Leaders (Live Feed)' section to represent real-time updates.
 
 ## 🚀 CSS deliverable
 
