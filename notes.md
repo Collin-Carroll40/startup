@@ -93,7 +93,7 @@ I implemented a consistent sidebar navigation structure using HTML tables (to be
       <li><a href="index.html">Logout</a></li>
     </ul>
   </nav>
-</td>
+</td> 
 
 
 

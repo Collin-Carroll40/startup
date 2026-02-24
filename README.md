@@ -102,21 +102,20 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Visually appealing colors and layout. No overflowing elements.** - I did not complete this part of the deliverable.
-- [ ] **Use of a CSS framework** - I did not complete this part of the deliverable.
-- [ ] **All visual elements styled using CSS** - I did not complete this part of the deliverable.
-- [ ] **Responsive to window resizing using flexbox and/or grid display** - I did not complete this part of the deliverable.
-- [ ] **Use of a imported font** - I did not complete this part of the deliverable.
-- [ ] **Use of different types of selectors including element, class, ID, and pseudo selectors** - I did not complete this part of the deliverable.
+- [x] **Visually appealing colors and layout. No overflowing elements.** - Styled the application with a clean, SaaS-style layout using custom navy blue and white themes.
+- [x] **Use of a CSS framework** - Integrated Bootstrap via NPM for utility classes and layout management.
+- [x] **All visual elements styled using CSS** - Used CSS Flexbox for the main container and sidebar navigation.
+- [x] **Responsive to window resizing using flexbox and/or grid display** - Used Flexbox for the main layout and added media queries to stack the navigation on screens under 700px.
+- [x] **Use of a imported font** - Imported and applied the 'Inter' Google Font across all elements.
+- [x] **Use of different types of selectors including element, class, ID, and pseudo selectors** - Utilized element selectors (`header`, `main`), class selectors (`.main-container`), and pseudo-selectors (`:nth-child(even)` for table striping).
 
 ## 🚀 React part 1: Routing deliverable
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Bundled using Vite** - I did not complete this part of the deliverable.
-- [ ] **Components** - I did not complete this part of the deliverable.
-- [ ] **Router** - I did not complete this part of the deliverable.
-
+- [x] **Bundled using Vite** - Initialized Node/NPM and successfully configured Vite to bundle the application.
+- [x] **Components** - Refactored the static HTML pages (Login, Dashboard, Leads, Import, Cadence) into modular React JSX components.
+- [x] **Router** - Implemented `react-router-dom` using `BrowserRouter` and `NavLink` to create a Single Page Application (SPA) with dynamic, refresh-free routing.
 ## 🚀 React part 2: Reactivity deliverable
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
