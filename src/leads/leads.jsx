@@ -1,17 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export function Leads() {
-  // Mock data state
-  const [leads, setLeads] = useState([
-    { date: '01/07/2026', desc: 'Roofing Lead - Orem' },
-    { date: '01/09/2026', desc: 'Plumbing Lead - Provo' },
-    { date: '01/21/2026', desc: 'HVAC Lead - Lehi' }
-  ]);
+  const [leads, setLeads] = useState([]);
 
-  // Handle claim button
-  const claimLead = (indexToRemove) => {
-    // Remove claimed lead
-    setLeads(leads.filter((_, index) => index !== indexToRemove));
+  // Load from API
+  useEffect(() => {
+    fetch('/api/leads')
+      .then((res) => res.json())
+      .then((data) => setLeads(data))
+      .catch(() => console.error('Failed to load leads'));
+  }, []);
+
+  // Claim via API
+  const claimLead = async (indexToRemove) => {
+    const response = await fetch('/api/leads/claim', {
+      method: 'POST',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({ index: indexToRemove }),
+    });
+    const updated = await response.json();
+    setLeads(updated);
     alert('Lead claimed successfully!');
   };
 
@@ -28,14 +36,12 @@ export function Leads() {
             </tr>
           </thead>
           <tbody>
-            {/* Render rows dynamically */}
             {leads.length > 0 ? (
               leads.map((lead, index) => (
                 <tr key={index}>
                   <td>{lead.date}</td>
                   <td>{lead.desc}</td>
                   <td>
-                    {/* Trigger claim action */}
                     <button className="btn btn-success btn-sm btn-claim" onClick={() => claimLead(index)}>
                       Claim
                     </button>
@@ -43,7 +49,6 @@ export function Leads() {
                 </tr>
               ))
             ) : (
-              /* Empty state message */
               <tr>
                 <td colSpan="3" className="text-center">No more leads available right now!</td>
               </tr>
