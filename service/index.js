@@ -60,6 +60,29 @@ const verifyAuth = async (req, res, next) => {
   }
 };
 
+// In-memory leads
+let leads = [
+  { date: '01/07/2026', desc: 'Roofing Lead - Orem' },
+  { date: '01/09/2026', desc: 'Plumbing Lead - Provo' },
+  { date: '01/21/2026', desc: 'HVAC Lead - Lehi' },
+  { date: '02/01/2026', desc: 'Electrical Lead - Sandy' },
+  { date: '02/14/2026', desc: 'Painting Lead - Draper' }
+];
+
+// Get leads
+apiRouter.get('/leads', verifyAuth, (_req, res) => {
+  res.send(leads);
+});
+
+// Claim lead
+apiRouter.post('/leads/claim', verifyAuth, (req, res) => {
+  const { index } = req.body;
+  if (index >= 0 && index < leads.length) {
+    leads.splice(index, 1);
+  }
+  res.send(leads);
+});
+
 // Test route
 app.get('/api/test', (_req, res) => {
   res.send({ msg: 'Pipeline Pro service running' });
