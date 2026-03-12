@@ -41,6 +41,25 @@ apiRouter.post('/auth/login', async (req, res) => {
   res.status(401).send({ msg: 'Unauthorized' });
 });
 
+// Logout
+apiRouter.delete('/auth/logout', async (req, res) => {
+  const user = await findUser('token', req.cookies[authCookieName]);
+  if (user) delete user.token;
+  res.clearCookie(authCookieName);
+  res.status(204).end();
+});
+
+// Auth middleware
+const verifyAuth = async (req, res, next) => {
+  const user = await findUser('token', req.cookies[authCookieName]);
+  if (user) {
+    req.user = user;
+    next();
+  } else {
+    res.status(401).send({ msg: 'Unauthorized' });
+  }
+};
+
 // Test route
 app.get('/api/test', (_req, res) => {
   res.send({ msg: 'Pipeline Pro service running' });
