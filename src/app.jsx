@@ -45,9 +45,13 @@ export default function App() {
                     {/* Logout button */}
                     <a className='nav-link' href='/' onClick={(e) => {
                       e.preventDefault();
-                      localStorage.removeItem('userName'); // Clear storage
-                      setAuthState('Unauthenticated');
-                      setUserName('');
+                      fetch('/api/auth/logout', { method: 'DELETE' })
+                        .catch(() => {})
+                        .finally(() => {
+                          localStorage.removeItem('userName');
+                          setAuthState('Unauthenticated');
+                          setUserName('');
+                        });
                     }}>Logout</a>
                   </li>
                 </>
