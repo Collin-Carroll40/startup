@@ -83,6 +83,24 @@ apiRouter.post('/leads/claim', verifyAuth, (req, res) => {
   res.send(leads);
 });
 
+// In-memory cadences
+let cadences = {};
+
+// Get cadence for user
+apiRouter.get('/cadence', verifyAuth, (req, res) => {
+  const userCadence = cadences[req.user.email] || [
+    { id: 1, method: 'Email', content: '' },
+    { id: 2, method: 'SMS', content: '' }
+  ];
+  res.send(userCadence);
+});
+
+// Save cadence for user
+apiRouter.post('/cadence', verifyAuth, (req, res) => {
+  cadences[req.user.email] = req.body.steps;
+  res.send(cadences[req.user.email]);
+});
+
 // Test route
 app.get('/api/test', (_req, res) => {
   res.send({ msg: 'Pipeline Pro service running' });
