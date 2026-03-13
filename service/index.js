@@ -95,6 +95,30 @@ apiRouter.get('/cadence', verifyAuth, (req, res) => {
   res.send(userCadence);
 });
 
+// In-memory imports
+let imports = {};
+
+// Get import history
+apiRouter.get('/imports', verifyAuth, (req, res) => {
+  const userImports = imports[req.user.email] || [
+    'Jan_Batch.csv (Success)',
+    'Dec_Batch.xlsx (Failed)'
+  ];
+  res.send(userImports);
+});
+
+// Add import record
+apiRouter.post('/imports', verifyAuth, (req, res) => {
+  if (!imports[req.user.email]) {
+    imports[req.user.email] = [
+      'Jan_Batch.csv (Success)',
+      'Dec_Batch.xlsx (Failed)'
+    ];
+  }
+  imports[req.user.email].push(req.body.filename);
+  res.send(imports[req.user.email]);
+});
+
 // Save cadence for user
 apiRouter.post('/cadence', verifyAuth, (req, res) => {
   cadences[req.user.email] = req.body.steps;
