@@ -51,6 +51,7 @@ export default function App() {
                           localStorage.removeItem('userName');
                           setAuthState('Unauthenticated');
                           setUserName('');
+                          window.location.href = '/';
                         });
                     }}>Logout</a>
                   </li>

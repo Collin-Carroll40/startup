@@ -41,7 +41,6 @@ export function Dashboard({ userName }) {
         <section>
           <h3>Sales Metrics</h3>
           <p>[Pie Chart Placeholder]</p>
-          <img src="/dash_import.jpeg" alt="Sales Pie Chart" style={{ width: '200px' }} />
           <p>[Bar Graph Placeholder]</p>
           <div style={{ background: 'blue', width: '100px', height: '20px' }}></div><br />
           <div style={{ background: 'blue', width: '150px', height: '20px' }}></div><br />
