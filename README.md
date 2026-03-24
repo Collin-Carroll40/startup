@@ -134,8 +134,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Stores data in MongoDB** - I did not complete this part of the deliverable.
-- [ ] **Stores credentials in MongoDB** - I did not complete this part of the deliverable.
+- [x] **Stores data in MongoDB** - Leads, cadences, and import history are all persisted in MongoDB collections using a dedicated database.js module.
+- [x] **Stores credentials in MongoDB** - User registration hashes passwords with bcrypt and stores them in a users collection. Login retrieves and verifies credentials from MongoDB.
 
 ## 🚀 WebSocket deliverable
 
