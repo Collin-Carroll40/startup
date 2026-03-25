@@ -54,11 +54,11 @@ export function Cadence() {
               value={step.content}
               onChange={(e) => updateContent(step.id, e.target.value)}
             />
+            <button className="btn btn-danger btn-sm" onClick={() => removeStep(step.id)}>Remove Step</button>
           </section>
         ))}
         <button className="btn btn-secondary me-2" onClick={addStep}>+ Add Step</button>
         <button className="btn btn-primary" onClick={saveCadence}>Save Cadence</button>
-        <button className="btn btn-danger btn-sm" onClick={() => removeStep(step.id)}>Remove Step</button>
       </main>
     </div>
   );
