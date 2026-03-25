@@ -40,11 +40,20 @@ export function Dashboard({ userName }) {
         <h2>Welcome, {userName || 'Agent'}!</h2>
         <section>
           <h3>Sales Metrics</h3>
-          <p>[Pie Chart Placeholder]</p>
-          <p>[Bar Graph Placeholder]</p>
-          <div style={{ background: 'blue', width: '100px', height: '20px' }}></div><br />
-          <div style={{ background: 'blue', width: '150px', height: '20px' }}></div><br />
-          <div style={{ background: 'blue', width: '80px', height: '20px' }}></div>
+          <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+            <div style={{ background: '#e8f5e9', padding: '20px', borderRadius: '8px', flex: '1', minWidth: '150px' }}>
+              <h4 style={{ margin: 0, color: '#2e7d32' }}>12</h4>
+              <p style={{ margin: 0 }}>Leads Claimed</p>
+            </div>
+            <div style={{ background: '#e3f2fd', padding: '20px', borderRadius: '8px', flex: '1', minWidth: '150px' }}>
+              <h4 style={{ margin: 0, color: '#1565c0' }}>$47k</h4>
+              <p style={{ margin: 0 }}>Pipeline Value</p>
+            </div>
+            <div style={{ background: '#fff3e0', padding: '20px', borderRadius: '8px', flex: '1', minWidth: '150px' }}>
+              <h4 style={{ margin: 0, color: '#e65100' }}>89%</h4>
+              <p style={{ margin: 0 }}>Response Rate</p>
+            </div>
+          </div>
         </section>
         <hr />
         <section>
