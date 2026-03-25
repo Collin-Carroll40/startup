@@ -24,6 +24,10 @@ export function Cadence() {
     ));
   };
 
+  const removeStep = (id) => {
+    setSteps(steps.filter(step => step.id !== id));
+  };
+
   // Save to API
   const saveCadence = async () => {
     await fetch('/api/cadence', {
@@ -54,6 +58,7 @@ export function Cadence() {
         ))}
         <button className="btn btn-secondary me-2" onClick={addStep}>+ Add Step</button>
         <button className="btn btn-primary" onClick={saveCadence}>Save Cadence</button>
+        <button className="btn btn-danger btn-sm" onClick={() => removeStep(step.id)}>Remove Step</button>
       </main>
     </div>
   );
