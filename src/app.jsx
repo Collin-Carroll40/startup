@@ -27,7 +27,7 @@ export default function App() {
         <div className="main-container">
           
           {/* Sidebar */}
-          <nav>
+          <nav style={{ display: authState === 'Unauthenticated' ? 'none' : 'block' }}>
             <menu className='navbar-nav'>
               {/* Unauthenticated view */}
               {authState === 'Unauthenticated' && (
