@@ -1,26 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import notifier from '../activityNotifier';
 
 export function Dashboard({ userName }) {
-  const [events, setEvents] = useState([
-    'User A closed "Smith Co" ($5k)',
-    'User B closed "Jones Inc" ($3k)'
-  ]);
+  const [events, setEvents] = useState([]);
   const [quote, setQuote] = useState('Loading quote...');
   const [quoteAuthor, setQuoteAuthor] = useState('');
 
-  // Simulated websocket feed
+  // Real WebSocket feed
   useEffect(() => {
-    const interval = setInterval(() => {
-      const fakeEvents = [
-        'Agent Sarah booked a demo',
-        'Agent Mike sent a contract',
-        'Agent Alex closed a $10k deal!',
-        'New inbound lead claimed'
-      ];
-      const random = fakeEvents[Math.floor(Math.random() * fakeEvents.length)];
-      setEvents(prev => [random, ...prev].slice(0, 4));
-    }, 5000);
-    return () => clearInterval(interval);
+    notifier.addHandler((event) => {
+      setEvents((prev) => [`${event.from}: ${event.text}`, ...prev].slice(0, 10));
+    });
   }, []);
 
   // Real third party API
@@ -38,6 +28,7 @@ export function Dashboard({ userName }) {
     <div className="main-container">
       <main>
         <h2>Welcome, {userName || 'Agent'}!</h2>
+
         <section>
           <h3>Sales Metrics</h3>
           <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
@@ -55,15 +46,19 @@ export function Dashboard({ userName }) {
             </div>
           </div>
         </section>
+
         <hr />
+
         <section>
           <h3>Sales Leaders (Live Feed)</h3>
+          {events.length === 0 && <p><em>Waiting for live activity...</em></p>}
           <ul>
             {events.map((event, index) => (
               <li key={index}>🔔 {event}</li>
             ))}
           </ul>
         </section>
+
         <section>
           <h3>Daily Inspiration (3rd Party API)</h3>
           <div style={{ background: '#f0f0f0', padding: '10px', border: '1px solid #ccc' }}>
