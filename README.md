@@ -141,8 +141,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Backend listens for WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Frontend makes WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Data sent over WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **WebSocket data displayed** - I did not complete this part of the deliverable.
-- [ ] **Application is fully functional** - I did not complete this part of the deliverable.
+- [x] **Backend listens for WebSocket connection** - peerProxy.js creates a WebSocketServer attached to the Express HTTP server and listens for incoming connections.
+- [x] **Frontend makes WebSocket connection** - activityNotifier.js connects to the backend WebSocket using the browser's WebSocket API with protocol detection for ws/wss.
+- [x] **Data sent over WebSocket connection** - When a user claims a lead, a JSON message is broadcast to all connected clients via WebSocket.
+- [x] **WebSocket data displayed** - The Dashboard live feed displays real-time notifications from other users instead of simulated data.
+- [x] **Application is fully functional** - All features work end-to-end with no mocks or placeholders. Auth, leads, cadences, imports, and live feed are all functional.
