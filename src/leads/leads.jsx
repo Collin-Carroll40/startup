@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import notifier from '../activityNotifier';
 
 export function Leads() {
   const [leads, setLeads] = useState([]);
+  const userName = localStorage.getItem('userName') || 'Someone';
 
   // Load from API
   useEffect(() => {
@@ -13,6 +15,7 @@ export function Leads() {
 
   // Claim via API
   const claimLead = async (indexToRemove) => {
+    const lead = leads[indexToRemove];
     const response = await fetch('/api/leads/claim', {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
@@ -20,7 +23,9 @@ export function Leads() {
     });
     const updated = await response.json();
     setLeads(updated);
-    alert('Lead claimed successfully!');
+
+    // Broadcast to all connected users via WebSocket
+    notifier.broadcastEvent(userName, `claimed "${lead.desc}"`);
   };
 
   return (
