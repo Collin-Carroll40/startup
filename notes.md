@@ -170,3 +170,34 @@ Handling the toggling of the checkboxes was particularly interesting.
   ))}
 </div>
 ```
+
+## Service Deliverable
+
+Created an Express backend on port 4000 with API routes for auth, leads, cadences, and imports. Used bcrypt for password hashing and HTTP-only cookies for session tokens. Added `verifyAuth` middleware to protect all app endpoints. Frontend React components fetch from `/api` routes via the Vite proxy in dev.
+
+## DB Deliverable
+
+- Connected to MongoDB Atlas using the mongodb driver
+- Created `database.js` module with CRUD helpers for users, leads, cadences, and imports
+- Replaced all in-memory arrays with MongoDB collections
+- Used bcrypt to hash passwords before storing in the users collection
+- Used `upsert` for cadence saves so it creates or updates as needed
+- `dbConfig.json` holds credentials and is excluded from git
+
+## WebSocket Deliverable
+
+### Backend (peerProxy.js)
+- Created `peerProxy.js` that attaches a `WebSocketServer` to the existing Express HTTP server
+- The server listens for connections, forwards messages to all other connected clients, and uses ping/pong to keep connections alive and terminate dead ones
+- Updated `index.js` to capture the HTTP server from `app.listen()` and pass it to `peerProxy()`
+
+### Frontend (activityNotifier.js)
+- Created `activityNotifier.js` as a singleton class that manages the WebSocket connection from the browser
+- Uses `window.location.protocol` to detect `ws` vs `wss` and connects to `/ws`
+- Components register handlers via `addHandler()` to receive real-time events
+- `broadcastEvent()` sends JSON messages to the server which forwards them to all peers
+
+### Integration
+- Dashboard live feed replaced the fake `setInterval` simulation with real WebSocket data from `activityNotifier`
+- Leads page broadcasts a notification to all users when someone claims a lead
+- Updated `vite.config.js` to proxy `/ws` to `ws://localhost:4000` for local development
