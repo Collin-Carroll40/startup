@@ -74,8 +74,19 @@ apiRouter.get('/leads', verifyAuth, async (_req, res) => {
 // Claim lead
 apiRouter.post('/leads/claim', verifyAuth, async (req, res) => {
   const { index } = req.body;
+  const allLeads = await DB.getLeads();
+  const claimed = allLeads[index];
   const leads = await DB.removeLead(index);
+  if (claimed) {
+    await DB.addClaimed(req.user.email, claimed);
+  }
   res.send(leads);
+});
+
+// Get claimed leads for user
+apiRouter.get('/leads/claimed', verifyAuth, async (req, res) => {
+  const claimed = await DB.getClaimed(req.user.email);
+  res.send(claimed);
 });
 
 // Get cadence for user

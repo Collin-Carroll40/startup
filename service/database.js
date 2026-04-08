@@ -10,6 +10,7 @@ const userCollection = db.collection('users');
 const leadCollection = db.collection('leads');
 const cadenceCollection = db.collection('cadences');
 const importCollection = db.collection('imports');
+const claimedCollection = db.collection('claimed');
 
 // Test connection
 (async function testConnection() {
@@ -65,6 +66,22 @@ async function removeLead(index) {
   return leadCollection.find({}).toArray();
 }
 
+// --- Claimed leads functions ---
+async function getClaimed(email) {
+  const doc = await claimedCollection.findOne({ email });
+  return doc ? doc.leads : [];
+}
+
+async function addClaimed(email, lead) {
+  const doc = await claimedCollection.findOne({ email });
+  if (doc) {
+    doc.leads.push(lead);
+    await claimedCollection.updateOne({ email }, { $set: { leads: doc.leads } });
+  } else {
+    await claimedCollection.insertOne({ email, leads: [lead] });
+  }
+}
+
 // --- Cadence functions ---
 async function getCadence(email) {
   const doc = await cadenceCollection.findOne({ email });
@@ -110,6 +127,8 @@ module.exports = {
   updateUserToken,
   getLeads,
   removeLead,
+  getClaimed,
+  addClaimed,
   getCadence,
   saveCadence,
   getImports,
